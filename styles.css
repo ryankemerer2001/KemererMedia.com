@@ -1,0 +1,242 @@
+
+:root{
+  --bg:#fff;
+  --fg:#000;
+  --muted:#666;
+  --accent:#000;
+  --max-width:1100px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+body {
+  background: url("assets/IMG_3.jpeg") center center / cover no-repeat fixed;
+  background-attachment: fixed; /* parallax-like effect */
+  color: black;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255,255,255,0.8);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:24px}
+.site-header{border-bottom:1px solid #eee;background:linear-gradient(180deg, #fff, #f8f8f8)}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.brand h1{margin:0;font-size:22px;letter-spacing:0.5px}
+.tagline{margin:4px 0 0;font-size:12px;color:var(--muted);font-style:italic}
+.nav a{margin-left:14px;text-decoration:none;color:var(--fg);font-weight:600}
+.nav .cta{padding:8px 12px;border:1px solid var(--accent);border-radius:6px}
+
+.hero{padding:40px 0}
+.hero-inner{display:flex;gap:24px;align-items:center}
+.hero-text h2{margin:0 0 8px;font-size:28px}
+.hero-text p{margin:0 0 12px;color:var(--muted)}
+.btn{
+    display: inline-block;
+    background-color: #0033cc;  /* bright blue highlight */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);  /* soft blue glow */
+  }
+
+  .btn:hover {
+    background-color: #002699;  /* deeper blue on hover */
+    transform: translateY(-2px);  /* small lift effect */
+    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.4);
+  }
+.nav a:hover,
+.btn:hover {
+  color: #002699; /* only affect navigation links + button text */
+}
+.header-btn {
+  color: white !important;
+}
+
+.hero-media  img {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    overflow: hidden;        /* hides any overflow from cropping */
+    width: 100%;
+    max-height: 500px;       /* adjust depending on how tall you want the section */
+  }
+.hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* fills the container but keeps proportions */
+    object-position: center;  /* centers the visible part of the image */
+    border-radius: 0;         /* optional – can round corners if desired */
+  }
+
+.services{padding:30px 0}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.service{padding:16px;border:1px solid #eee;border-radius:10px;background:#fff}
+
+.portfolio{padding:30px 0}
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 even columns */
+  gap: 15px; /* space between them */
+  justify-content: center;
+  align-items: center;
+}
+
+.media-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.media-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container, crops if needed */
+  display: block;
+  border-radius: 0;
+}
+@media (max-width: 1024px) {
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-section {
+  position: relative;
+  background: url("assets/IMG_.jpeg") center center / cover no-repeat;
+  color: #000;
+  padding: 20px 8%;
+  overflow: hidden;
+}
+
+/* Add a translucent overlay to soften the background */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1); /* 75% white overlay */
+  backdrop-filter: blur(4px); /* subtle background blur */
+  z-index: 0;
+}
+
+/* Make sure your actual content stays above the overlay */
+.about-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1 1 50%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.about-text .subtitle {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+}
+
+.about-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.site-footer{border-top:1px solid #eee;padding:20px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* responsive */
+@media(max-width:800px){
+  .hero-inner{flex-direction:column}
+  .hero-media img{width:100%;height:220px}
+  .nav{display:none}
+}
+/* === SOCIAL ICON STYLES === */
+.social-links {
+  display: flex;
+  justify-content: flex-end;   /* centers them horizontally */
+  gap: 20px;                 /* space between icons */
+  margin-top: -80px;
+}
+
+.social-links img {
+  width: 80px;               /* control icon size here */
+  height: 80px;
+  object-fit: contain;       /* keeps image proportions clean */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);     /* subtle hover zoom */
+  opacity: 0.8;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .social-links img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;           /* space between icons */
+  align-items: center; /* vertically center if needed */
+  justify-content: center; /* optional: centers the whole row */
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;  /* keeps proportions */
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1); /* small hover zoom */
+  cursor: pointer;
+}
+
+
